@@ -1,9 +1,10 @@
 <?php
     session_start();
+    include_once "seguranca.php"
 ?>
 <html>
     <head>
-        <title>Home Page</title>
+        <title>Usuário Page</title>
         <?php
             include "../include/head.php";
         ?>

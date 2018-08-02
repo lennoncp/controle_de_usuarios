@@ -5,7 +5,7 @@
 ?>
 <html>
     <head>
-        <title>Home Page</title>
+        <title>Administração Page</title>
         <?php
             include "../include/head.php";
         ?>

@@ -3,10 +3,10 @@
 
     if($_SESSION['auth'] == true){
 
-        if($_SESSION['nivel_acesso'] == 1){
+        if($_SESSION['nivel_acesso'] >= 1){
 
         }else{
-            $_SESSION['loginErro'] = "Usuário não possui privilegio administrativos.";
+            $_SESSION['loginErro'] = "Usuário deve-se logar.";
             header("Location: http://".$_SERVER['SERVER_NAME']."/login.php");
         }
 

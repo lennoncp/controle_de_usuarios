@@ -16,7 +16,7 @@
 
     ?>
 
-            <META HTTP-EQUIV=REFRESH CONTENT = "0; URL= http://<?php echo $_SERVER['SERVER_NAME']?>/index.php">
+            <META HTTP-EQUIV=REFRESH CONTENT = "0; URL= http://<?php echo $_SERVER['SERVER_NAME']?>/index.php?link=1">
             <script type="text/javascript">
                 alert("Saindo...");
             </script>
