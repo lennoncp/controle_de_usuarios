@@ -12,7 +12,7 @@
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
             <h5 class="my-0 mr-md-auto font-weight-normal">Nome da companhia</h5>
             <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="index.php">Home</a>
+            <a class="p-2 text-dark" href="http://<?php echo $_SERVER['SERVER_NAME']?>/index.php">Home</a>
             </nav>
         </div>
         <div class="container-fluid">
@@ -26,7 +26,7 @@
                 <?php
                     } 
                 ?>
-                <form class="form-signin" method="POST" action="dao/valida_dados.php">
+                <form class="form-signin" method="POST" action="http://<?php echo $_SERVER['SERVER_NAME']?>/dao/valida_dados.php">
                     <img class="mb-4" src="imgs/images.png" alt="" width="72" height="72">
                     <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
                     <label for="usuario" class="sr-only">Endereço de email</label>
@@ -40,7 +40,14 @@
         <?php
 
             unset(
-                $_SESSION['loginErro']
+                $_SESSION['loginErro'],
+                $_SESSION['id'],
+                $_SESSION['nome'],
+                $_SESSION['usuario'] ,
+                $_SESSION['nivel_acesso'] ,
+                $_SESSION['status'],
+                $_SESSION['criado'] ,
+                $_SESSION['modificado'] 
             );
 
             include "include/footer.php";
