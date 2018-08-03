@@ -21,6 +21,12 @@
             $page['3'] = "../administracao/contents/listagem_de_usuarios.php";
             $page['4'] = "../administracao/contents/editar_o_usuario.php";
             $page['5'] = "../administracao/contents/visualizar_o_usuario.php";
+            $page['6'] = "../administracao/contents/manutencao_de_categoria.php";
+            $page['7'] = "../administracao/contents/listagem_de_produtos.php";
+            $page['8'] = "../administracao/contents/cadastro_de_produtos.php";
+            
+            
+            
             
             if(!empty($link)){
                 if(file_exists($page[$link])){

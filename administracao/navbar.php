@@ -13,6 +13,16 @@
         <a class="dropdown-item" href="administracao.php?link=">Link 3</a>
         </div>
     </div>
+    <div class="dropdown">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+        Produto
+        </button>
+        <div class="dropdown-menu">
+        <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=6">Categoria</a>
+        <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=7">Produtos</a>
+        <a class="dropdown-item" href="administracao.php?link=">Link 3</a>
+        </div>
+    </div>
 
     <?php
         if($_SESSION['auth']){
