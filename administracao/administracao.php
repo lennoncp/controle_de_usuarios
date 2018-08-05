@@ -24,6 +24,7 @@
             $page['6'] = "../administracao/contents/manutencao_de_categoria.php";
             $page['7'] = "../administracao/contents/listagem_de_produtos.php";
             $page['8'] = "../administracao/contents/cadastro_de_produtos.php";
+            $page['9'] = "../administracao/contents/editar_o_produto.php";
             
             
             

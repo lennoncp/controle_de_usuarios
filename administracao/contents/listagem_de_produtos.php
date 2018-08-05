@@ -71,19 +71,28 @@
                 <td>
                     <div class="pull-right" >
                     <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=5&id=<?php echo $lista['id'] ?>" type="button" class="btn btn-primary btn-sm" >Visializar</a>
-                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=4&id=<?php echo $lista['id'] ?>" type="button" class="btn btn-warning btn-sm" >Editar</a>
-                    <?php
-                        if($lista['situacao_id'] == 1){
-                    ?>
-                            <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/edit_usuario.php?link=4&id=<?php echo $lista['id'] ?>&bt=true&status=0" type='button' class='btn btn-success btn-sm' >Desativar</a>
-                    <?php
-                        }else{
-                    ?>
-                            <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/edit_usuario.php?link=4&id=<?php echo $lista['id'] ?>&bt=true&status=1" type='button' class='btn btn-secondary btn-sm' >Ativar</a>
-                    <?php
-                        }
-                    ?>
-                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/del_usuario.php?id=<?php echo $lista['id'] ?>" type="button" class="btn btn-danger btn-sm">Excluir</a>
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=9&id=<?php echo $lista['id'] ?>" type="button" class="btn btn-warning btn-sm" >Editar</a>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+                        <?php 
+                            $select = mysqli_query($conexao, "SELECT * FROM situacao WHERE id=".$lista['situacao_id']);
+                            $selected = mysqli_fetch_assoc($select);
+                        ?>
+                        <?php echo $selected['nome'] ?>
+                        </button>
+                        <div class="dropdown-menu">
+                         <?php 
+                            $situacoes = mysqli_query($conexao, "SELECT * FROM situacao");
+                            while($situacao = mysqli_fetch_assoc($situacoes)){
+                        ?>
+                            <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/edit_prod_situacao.php?id=<?php echo $lista['id']."&situacao_id=".$situacao['id']; ?>"><?php echo $situacao['nome'] ?></a>
+                        <?php
+                            }
+                        ?>
+
+                        </div>
+                    </div>
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/del_produto.php?id=<?php echo $lista['id'] ?>" type="button" class="btn btn-danger btn-sm">Excluir</a>
                     </div>
                 </td>
             </tr>
