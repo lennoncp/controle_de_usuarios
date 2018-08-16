@@ -4,6 +4,16 @@
 
     $id = $_GET['id'];
 
+    //Pasta onde o arquivo vai ser salvo
+    $_UP['pasta'] = '../../../fotos/';
+
+    $query = mysqli_query($conexao, "SELECT * FROM produtos WHERE id='$id' ");
+    $resultado = mysqli_fetch_array($query);
+
+    if(!empty($resultado['imagem'])){
+        $delete = unlink($_UP['pasta'].$resultado['imagem']);
+    }
+
     $delete = mysqli_query($conexao, "DELETE FROM produtos WHERE id='$id'");
 
     if((mysqli_affected_rows($conexao)) != 0){

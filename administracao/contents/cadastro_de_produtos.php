@@ -1,6 +1,9 @@
-<div class="container-fluid">
-    <div class="container col-md-6" style="padding: 10px;">
-        <h2>Cadastro do Produto</h2>
+<div class="container-fluid ">
+    <div class="container col-md-6 margem-top-bottom" style="padding: 10px;">
+        <div class="form-inline">
+            <h2>Cadastro do Produto</h2>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=7" type="button" class="btn btn-primary btn-md ml-auto" >Listar Produtos</a>
+        </div>
         <form method="POST"  action="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/cad_produto.php" 
             enctype="multipart/form-data">
             <div class="form-group">

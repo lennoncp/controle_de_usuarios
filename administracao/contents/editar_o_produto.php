@@ -4,8 +4,11 @@
     $resultado = mysqli_fetch_array($query);
 ?>
 <div class="container-fluid">
-    <div class="container col-md-6" style="padding: 10px;">
-        <h2>Cadastro do Produto</h2>
+    <div class="container col-md-6 margem-top-bottom" style="padding: 10px;">
+        <div class="form-inline">
+            <h2>Editando o Produto</h2>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=7" type="button" class="btn btn-primary btn-md ml-auto" >Listando Produtos</a>
+        </div>
         <form method="POST"  action="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/edit_produto.php" enctype="multipart/form-data">
             <div class="form-group">
             <label for="nome">Nome</label>
@@ -57,8 +60,8 @@
                 $situacoes = mysqli_query($conexao, "SELECT * FROM situacao");
                 while($situacao = mysqli_fetch_assoc($situacoes)){
             ?>
-                <option value="<?php echo $situacao['id'] ?>" 
-                <?php if($situacao['id'] == $resultado['situacao_id']){ echo "selected"; } ?>
+                <option value="<?php echo $situacao['id']; ?>" 
+                <?php if($situacao['id'] == $resultado['situacao_id']){ echo " selected"; } ?>
                 ><?php echo $situacao['nome'] ?></option>
             <?php
                 }
@@ -78,7 +81,7 @@
                 <div class="form-group">
                    <label >Imagem Antiga</label>
                     <img src="<?php echo "../../../fotos/".$resultado['imagem']; ?>" width="100" height="100">
-                    <input type="hidden" value="<?php echo $resultado['imagem'] ?>" name="img_antiga" id="img_antiga">
+                    <input type="hidden" value="<?php echo $resultado['imagem'] ?>" name="imagem_antiga" id="imagem_antiga">
                    </div>
             <?php
                 }

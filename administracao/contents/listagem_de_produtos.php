@@ -1,25 +1,22 @@
 <?php
 
-    $query = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY id");
+    $query = mysqli_query($conexao, "SELECT p.id as id, p.nome as nome, p.preco as preco, p.categoria_id as categoria_id, c.nome as categoria, p.situacao_id as situacao_id from produtos p, categorias c where p.categoria_id = c.id");
 
 ?>
 <div class="container-fluid">
-    <div class="container-fluid col-md-12">
+    <div class="container-fluid col-md-12 margem-top-bottom">
         <div class="form-inline">
             <h2>Listagem de Produtos</h2>
-            <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=8" type="button" class="btn btn-primary btn-md" >Novo Produto</a>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=8" class="btn btn-primary btn-sm ml-auto shadow" >Novo Produto</a>
         </div>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição curta</th>
                 <th>preço</th>
-                <th>tags</th>
-                <th>Description</th>
-                <th>Data Criação</th>
-                <th>Data Modificação</th>
+                <th>Categoria</th>
+                <th>situação</th>
                 <th>ações</th>
             </tr>
             </thead>
@@ -29,70 +26,54 @@
             ?>
             <tr>
                 <td>
-                <?php 
+                    <?php 
                         echo $lista['id'];
                     ?>
                 </td>
                 <td>
-                <?php 
+                    <?php 
                         echo $lista['nome'];
                     ?>
                 </td>
                 <td>
-                <?php 
-                        echo $lista['descricao_curta'];
-                    ?>
-                </td>
-                <td>
-                <?php 
+                    <?php 
                         echo $lista['preco'];
                     ?>
                 </td>
                 <td>
-                <?php 
-                        echo $lista['tag'];
-                    ?>
-                </td>
-                <td>
-                <?php 
-                        echo $lista['description'];
-                    ?>
-                </td>
-                <td>
                     <?php 
-                        echo $lista['criado'];
+                        echo $lista['categoria'];
                     ?>
                 </td>
                 <td>
-                    <?php 
-                        echo $lista['modificado'];
-                    ?>
-                </td>
-                <td>
-                    <div class="pull-right" >
-                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=5&id=<?php echo $lista['id'] ?>" type="button" class="btn btn-primary btn-sm" >Visializar</a>
-                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=9&id=<?php echo $lista['id'] ?>" type="button" class="btn btn-warning btn-sm" >Editar</a>
                     <div class="dropdown">
-                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
-                        <?php 
-                            $select = mysqli_query($conexao, "SELECT * FROM situacao WHERE id=".$lista['situacao_id']);
-                            $selected = mysqli_fetch_assoc($select);
-                        ?>
-                        <?php echo $selected['nome'] ?>
+                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm shadow" data-toggle="dropdown">
+                            <?php 
+                                $select = mysqli_query($conexao, "SELECT * FROM situacao WHERE id=".$lista['situacao_id']);
+                                $selected = mysqli_fetch_assoc($select);
+                            ?>
+                            <?php echo $selected['nome'] ?>
                         </button>
                         <div class="dropdown-menu">
-                         <?php 
-                            $situacoes = mysqli_query($conexao, "SELECT * FROM situacao");
-                            while($situacao = mysqli_fetch_assoc($situacoes)){
-                        ?>
-                            <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/edit_prod_situacao.php?id=<?php echo $lista['id']."&situacao_id=".$situacao['id']; ?>"><?php echo $situacao['nome'] ?></a>
-                        <?php
-                            }
-                        ?>
+                            <?php 
+                                $situacoes = mysqli_query($conexao, "SELECT * FROM situacao");
+                                while($situacao = mysqli_fetch_assoc($situacoes)){
+                            ?>
+                                <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/edit_prod_situacao.php?id=<?php echo $lista['id']."&situacao_id=".$situacao['id']; ?>"><?php echo $situacao['nome'] ?></a>
+                            <?php
+                                }
+                            ?>
 
                         </div>
                     </div>
-                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/del_produto.php?id=<?php echo $lista['id'] ?>" type="button" class="btn btn-danger btn-sm">Excluir</a>
+
+                </td>
+                <td>
+                    <div class="pull-right" >
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=10&id=<?php echo $lista['id'] ?>"  class="btn btn-primary btn-sm shadow" > <span data-feather="search"></span></a>
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=9&id=<?php echo $lista['id'] ?>"  class="btn btn-warning btn-sm shadow" ><span data-feather="edit"></span></a>
+                   
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/produto/del_produto.php?id=<?php echo $lista['id'] ?>"  class="btn btn-danger btn-sm shadow"><span data-feather="trash-2"></a>
                     </div>
                 </td>
             </tr>

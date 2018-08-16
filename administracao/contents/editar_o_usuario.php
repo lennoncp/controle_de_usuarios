@@ -4,8 +4,8 @@
     $resultado = mysqli_fetch_array($query);
 ?>
 <div class="container-fluid">
-    <div class="container col-md-6" style="padding: 10px;">
-        <h2>Cadastro de Usuário</h2>
+    <div class="container col-md-6 margem-top-bottom" style="padding: 10px;">
+        <h2>Editando o Usuário</h2>
         <form method="POST"  action="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/edit_usuario.php">
             <div class="form-group">
             <label for="nome">Nome</label>

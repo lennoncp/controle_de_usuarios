@@ -7,10 +7,10 @@
     <head>
         <title>Administração Page</title>
         <?php
-            include "../include/head.php";
+            include "./../include/head.php";
         ?>
     </head>
-    <body>
+    <body >
         <?php
             include "navbar.php";
 
@@ -25,6 +25,13 @@
             $page['7'] = "../administracao/contents/listagem_de_produtos.php";
             $page['8'] = "../administracao/contents/cadastro_de_produtos.php";
             $page['9'] = "../administracao/contents/editar_o_produto.php";
+            $page['10'] = "../administracao/contents/visualizar_produto.php";
+            $page['11'] = "../administracao/contents/manutencao_de_situacao.php";
+            $page['12'] = "../administracao/contents/listagem_de_mensagens.php";
+
+            
+            
+           
             
             
             

@@ -4,7 +4,7 @@
     $resultado = mysqli_fetch_array($query);
 ?>
 <div class="container-fluid">
-    <div class="container col-md-6" style="padding: 10px;">
+    <div class="container col-md-6 margem-top-bottom" style="padding: 10px;">
         <h2>Visualização de Usuário</h2>
             <div class="form-group">
             <label for="nome">Nome</label>

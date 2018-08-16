@@ -9,11 +9,13 @@
             include "include/head.php";
         ?>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <?php
             include "navbar.php";
 
-            $link = $_GET['link'];
+            if(!empty($_GET['link'])){
+             $link = $_GET['link'];
+            }
 
             $page['1'] = "content_index.php";
             $page['2'] = "content_about.php";

@@ -8,15 +8,16 @@
             include "include/head.php";
         ?>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
             <h5 class="my-0 mr-md-auto font-weight-normal">Nome da companhia</h5>
             <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="http://<?php echo $_SERVER['SERVER_NAME']?>/index.php?link=1">Home</a>
             </nav>
         </div>
-        <div class="container-fluid">
-            <div class="container col-md-4 text-center" >
+        <div class="container-flex center-block">
+            <div class="col-md-4" ></div;
+            <div class="col-md-4 text-center" >
                 <?php
                     if(!empty($_SESSION['loginErro'])){
                 ?>
@@ -36,6 +37,7 @@
                     <button class="btn btn-md btn-primary float-right" type="submit" style="margin: 5px;">Login</button>
                 </form>
             </div>
+            <div class="col-md-4" ></div;
         </div>
         <?php
 

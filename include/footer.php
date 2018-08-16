@@ -1,42 +1,11 @@
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div class="row">
-        <div class="col-12 col-md">
-        <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-        <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-        </div>
-        <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Algo legal</a></li>
-            <li><a class="text-muted" href="#">Feature aleatória</a></li>
-            <li><a class="text-muted" href="#">Recursos para times</a></li>
-            <li><a class="text-muted" href="#">Coisas para desenvolvedores</a></li>
-            <li><a class="text-muted" href="#">Outra coisa legal</a></li>
-            <li><a class="text-muted" href="#">Último item</a></li>
-        </ul>
-        </div>
-        <div class="col-6 col-md">
-        <h5>Fontes</h5>
-        <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Fonte</a></li>
-            <li><a class="text-muted" href="#">Nome da fonte</a></li>
-            <li><a class="text-muted" href="#">Outra fonte</a></li>
-            <li><a class="text-muted" href="#">Fonte final</a></li>
-        </ul>
-        </div>
-        <div class="col-6 col-md">
-        <h5>Sobre</h5>
-        <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Equipe</a></li>
-            <li><a class="text-muted" href="#">Locais</a></li>
-            <li><a class="text-muted" href="#">Privacidade</a></li>
-            <li><a class="text-muted" href="#">Termos</a></li>
-        </ul>
-        </div>
+<footer class="footer fixed-bottom mt-auto py-3">
+    <div class="container">
+    <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
     </div>
-    </footer>
+</footer>
 
 <script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -44,4 +13,10 @@
 <script>
       CKEDITOR.replace( 'descricao_curta' );
       CKEDITOR.replace( 'descricao_longa' );
+</script>
+
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
 </script>

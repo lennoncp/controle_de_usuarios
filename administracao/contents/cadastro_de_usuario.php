@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="container col-md-6" style="padding: 10px;">
+    <div class="container col-md-6 margem-top-bottom" style="padding: 10px;">
         <h2>Cadastro de Usuário</h2>
         <form method="POST"  action="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/dao/cad_usuario.php">
             <div class="form-group">

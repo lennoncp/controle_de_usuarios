@@ -41,7 +41,8 @@
    }
 
    //Faz a verificação da extensão da imagem(arquivo)
-   $extensao = strtolower(end(explode('.',$_FILES['imagem']['name'])));
+  // $extensao = strtolower(end(explode('.',$_FILES['imagem']['name'])));
+   $extensao = strtolower(end(explode('.',$imagem)));
    if(array_search($extensao, $_UP['extensoes']) === false){
        ?>
             <META HTTP-EQUIV=REFRESH CONTENT = '0; URL= http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=8'>
