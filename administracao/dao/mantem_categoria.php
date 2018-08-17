@@ -9,7 +9,9 @@
 
             //echo " Nome: ".$nome." Usuario: ".$usuario." Senha: ".$senha." Nível: ".$nivel." Nome: ".$status." ";
 
-            $update = mysqli_query($conexao, "UPDATE categorias SET nome='$nome', modificado=NOW() WHERE id='$id';");
+            $slug = strtolower(preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $nome ) ));
+
+            $update = mysqli_query($conexao, "UPDATE categorias SET nome='$nome', slug='$slug', modificado=NOW() WHERE id='$id';");
 
         
 
@@ -37,7 +39,9 @@
         $id = $_POST['id'];
         $nome = $_POST['nome'];
 
-        $insert = mysqli_query($conexao, "INSERT INTO categorias ( nome, criado) VALUES ( '$nome',  NOW())");
+        $slug = strtolower(preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $nome ) ));
+
+        $insert = mysqli_query($conexao, "INSERT INTO categorias ( nome, slug, criado) VALUES ( '$nome', '$slug',  NOW())");
 
     
 

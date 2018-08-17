@@ -2,14 +2,16 @@
 <?php
     $url = (isset($_GET['url'])) ? $_GET['url']:'';
     $explode = explode('/', $url);
-    $categoria_id = $explode[1];
+    //$categoria_id = $explode[1];
+    $categoria_slug = $explode[1];
 
     //seleciona a categoria de produtos
-    $categorias = mysqli_query($conexao, "SELECT * FROM categorias WHERE id='$categoria_id' LIMIT 1");
+   // $categorias = mysqli_query($conexao, "SELECT * FROM categorias WHERE id='$categoria_id' LIMIT 1");
+   $categorias = mysqli_query($conexao, "SELECT * FROM categorias WHERE slug='$categoria_slug' LIMIT 1");
     $categoria = mysqli_fetch_assoc($categorias);
 
     //seleciona os produtos da categoria selecionada
-    $produtos = mysqli_query($conexao, "SELECT * FROM produtos WHERE categoria_id='$categoria_id' ORDER BY id ");
+    $produtos = mysqli_query($conexao, "SELECT * FROM produtos WHERE categoria_id=".$categoria['id']." ORDER BY id ");
     
 ?>
 <div class="container marketing">
@@ -35,7 +37,7 @@
 
     <hr class="featurette-divider-sm">
     <?php 
-    $produtos_feat = mysqli_query($conexao, "SELECT * FROM produtos WHERE categoria_id='$categoria_id'  LIMIT 3 ");
+    $produtos_feat = mysqli_query($conexao, "SELECT * FROM produtos WHERE categoria_id=".$categoria['id']."  LIMIT 3 ");
         $controle = 0;
         while($produto_feat = mysqli_fetch_array($produtos_feat)){
             if($controle == 0){

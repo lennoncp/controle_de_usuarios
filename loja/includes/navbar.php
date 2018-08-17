@@ -18,7 +18,8 @@
 <?php 
         while($categoria = mysqli_fetch_assoc($categorias)){
 ?>
-            <a class="dropdown-item" href="<?php echo pg.'/produto/'.$categoria['id']; ?>"><?php echo $categoria['nome'] ?></a>
+            <a class="dropdown-item" href="<?php echo pg.'/produto/'.$categoria['slug']; ?>"><?php echo $categoria['nome'] ?></a>
+            <!-- <a class="dropdown-item" href="<?php echo pg.'/produto/'.$categoria['id']; ?>"><?php echo $categoria['nome'] ?></a> -->
 <?php 
         }
 ?>
