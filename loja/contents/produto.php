@@ -28,7 +28,7 @@
         <img class="rounded-circle" src="./../../fotos/<?php echo $produto['imagem'] ?>" alt="Generic placeholder image" width="200" height="200">
         <h2><?php echo $produto['nome'] ?></h2>
         <p><?php echo $produto['descricao_curta'] ?></p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" href=<?php echo pg."/produto/".$categoria['slug']."/".$produto['slug'] ?> role="button">View details &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
     <?php
     }

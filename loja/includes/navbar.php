@@ -32,9 +32,5 @@
         <a class="nav-link text-light " href="<?php echo pg.'/contato'; ?>">Contato</a>
         </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Pesquisa" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-    </form>
     </div>
 </nav>

@@ -36,67 +36,99 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
+    <?php 
+
+    $produtos = mysqli_query($conexao, "SELECT * FROM produtos p, produto_destaque pd where p.id = pd.produto_id ORDER BY pd.destacado DESC");
+    
+    while($produto = mysqli_fetch_assoc($produtos)){
+
+        if($produto['destaque_id'] == 1){
+    
+    ?>
     <div class="col-lg-3">
-        <img class="rounded-circle" src="./../../fotos/escritorio.png" alt="Generic placeholder image" width="200" height="200">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <img class="rounded-circle" src="./../../fotos/<?php echo $produto['imagem']; ?>" alt="Generic placeholder image" width="200" height="200">
+        <h2><?php echo $produto['nome']; ?></h2>
+        <p><?php echo $produto['descricao_curta']; ?></p>
+        <?php 
+          $categotias = mysqli_query($conexao, "SELECT * FROM categorias WHERE id=".$produto['categoria_id']);
+          $categoria = mysqli_fetch_array($categotias);
+        ?>
+        <p><a class="btn btn-secondary" href=<?php echo pg."/produto/".$categoria['slug']."/".$produto['slug'] ?> >View details &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
-    <div class="col-lg-3">
-        <img class="rounded-circle" src="./../../fotos/mesaParana.jpg" alt="Generic placeholder image" width="200" height="200">
-        <h2>Heading</h2>
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-3">
-        <img class="rounded-circle" src="./../../fotos/escritoriomadeira.jpg" alt="Generic placeholder image" width="200" height="200">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-3">
-        <img class="rounded-circle" src="./../../fotos/escritorioantigo.png" alt="Generic placeholder image" width="200" height="200">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
+    <?php 
+        }
+    }
+    ?>
     </div><!-- /.row -->
 
+    <?php 
+
+    $produtos_feat = mysqli_query($conexao, "SELECT * FROM produtos p, produto_destaque pd where p.id = pd.produto_id ORDER BY pd.destacado");
+
+    $count = 0;
+
+    while($produto_feat = mysqli_fetch_assoc($produtos_feat)){
+        
+    if($produto_feat['destaque_id'] == 2){
+
+    ?>
+    
     <hr class="featurette-divider">
 
+    <?php 
+
+    if($count == 1){
+
+    ?>
+
     <div class="row featurette">
+
     <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading"><?php echo $produto_feat['nome']; ?> </h2>
+        <p class="lead"><?php echo $produto_feat['descricao_curta']; ?></p>
+        <?php 
+          $categotias_feat = mysqli_query($conexao, "SELECT * FROM categorias WHERE id=".$produto_feat['categoria_id']);
+          $categoria_feat = mysqli_fetch_array($categotias_feat);
+        ?>
+        <p><a class="btn btn-secondary" href=<?php echo pg."/produto/".$categoria_feat['slug']."/".$produto_feat['slug'] ?> >View details &raquo;</a></p>
     </div>
     <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" src="./../../fotos/mesadevidro.webp" alt="Generic placeholder image" width="500px" height="500px">
-    </div>
+        <img class="featurette-image img-fluid mx-auto" src="./../../fotos/<?php echo $produto_feat['imagem']; ?>" alt="Generic placeholder image" width="500px" height="500px">
     </div>
 
     <hr class="featurette-divider">
 
+    </div>
+
+    <?php 
+     $count = 0;
+    }else{
+    ?>
+
     <div class="row featurette">
+
     <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading"><?php echo $produto_feat['nome']; ?></h2>
+        <p class="lead"><?php echo $produto_feat['descricao_curta']; ?></p>
+        <?php 
+          $categotias_feat = mysqli_query($conexao, "SELECT * FROM categorias WHERE id=".$produto_feat['categoria_id']);
+          $categoria_feat = mysqli_fetch_array($categotias_feat);
+        ?>
+        <p><a class="btn btn-secondary" href=<?php echo pg."/produto/".$categoria_feat['slug']."/".$produto_feat['slug'] ?> >View details &raquo;</a></p>
     </div>
     <div class="col-md-5 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="./../../fotos/escritoriosimples.gif" alt="Generic placeholder image" width="500px" height="500px">
-    </div>
+        <img class="featurette-image img-fluid mx-auto" src="./../../fotos/<?php echo $produto_feat['imagem']; ?>" alt="Generic placeholder image" width="500px" height="500px">
     </div>
 
     <hr class="featurette-divider">
+    </div>
 
-    <div class="row featurette">
-    <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-    <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" src="./../../fotos/mesa6cadeiras.webp" alt="Generic placeholder image" width="500px" height="500px">
-    </div>
-    </div>
+    <?php
+       $count = 1;
+            }
+        }
+    }
+    ?>
 
     <hr class="featurette-divider">
 

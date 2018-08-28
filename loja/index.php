@@ -22,11 +22,39 @@
 
     $paginas = array('home', 'produto', 'empresa', 'contato');
 
+    $produtos = mysqli_query($conexao, "SELECT slug FROM produtos ORDER BY id ");
+    $produtoSlugs = array();
+
+    if(mysqli_num_rows($produtos) > 0){
+        while($row = mysqli_fetch_assoc($produtos)){
+            $produtoSlugs[] = $row['slug'];
+        }
+    }
+/*
+    //Cria array de permissoes do usuario
+    $select_permisoes = mysqli_query($conexao, "SELECT p.id as id FROM usuarios u, usuario_permissoes up, permisao p WHERE u.id = up.usuario_id AND up.permisao_id = p.id AND u.id = ".$dados['id']." ") or die(mysqli_error($conexao));
+    $permissoes = array();
+
+    if(mysqli_num_rows($select_permisoes) > 0){
+        while($row = mysqli_fetch_assoc($select_permisoes)){
+            $permissoes[] = $row['id'];
+        }
+    }
+*/
     if(isset($explode[0]) && $explode[0] == ''){
         include "/contents/home.php";
     }elseif($explode[0] != ''){
         if(isset($explode[0]) && in_array($explode[0], $paginas)){
-            include "/contents/".$explode[0].".php";
+            //print_r($produtoSlugs);
+           // include "/contents/".$explode[0].".php";
+
+            if(isset($explode[2]) && in_array($explode[2], $produtoSlugs)){
+                include "/contents/detalha_produto.php";
+            }else{
+                include "/contents/".$explode[0].".php"; 
+                
+            }
+
         }else{
             include "/contents/home.php";
         }

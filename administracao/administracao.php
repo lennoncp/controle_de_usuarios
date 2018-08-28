@@ -28,6 +28,7 @@
             $page['10'] = "../administracao/contents/visualizar_produto.php";
             $page['11'] = "../administracao/contents/manutencao_de_situacao.php";
             $page['12'] = "../administracao/contents/listagem_de_mensagens.php";
+            $page['13'] = "../administracao/contents/destaque_produtos.php";
 
             
             

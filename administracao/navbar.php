@@ -20,6 +20,7 @@
         <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=6">Categoria</a>
         <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=7">Produtos</a>
         <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=11">Situação</a>
+        <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME']?>/administracao/administracao.php?link=13">Destaque</a>
         </div>
     </div>
     <div class="dropdown p-1">

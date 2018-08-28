@@ -2,7 +2,7 @@
     session_start();
     include_once "conexao.php";
 
-    if($_GET['bt']=true){
+    if(!empty($_GET['bt'])){
 
         $id = $_GET['id'];
         $status = $_GET['status'];
@@ -19,7 +19,7 @@
 
     //echo " Nome: ".$nome." Usuario: ".$usuario." Senha: ".$senha." Nível: ".$nivel." Nome: ".$status." ";
 
-    $update = mysqli_query($conexao, "UPDATE usuarios SET nome='$nome' , usuario='$usuario', senha='$senha', status='$status', nivel_acesso_id='$nivel', modificado=NOW() WHERE id='$id';");
+    $update = mysqli_query($conexao, "UPDATE usuarios SET nome='$nome' , usuario='$usuario', senha='$senha', status='$status', nivel_acesso_id='$nivel', modificado=NOW() WHERE id='$id';") or die(mysqli_error($conexao));
 
     }
 

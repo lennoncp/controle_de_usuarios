@@ -22,8 +22,11 @@
 
     if($imagem == "")
         {
+
+            $minusculo = strtolower(preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $nome ) ));
+            $slug = str_replace(" ", "_", $minusculo);
         
-        $upload = mysqli_query($conexao, "UPDATE produtos SET nome='$nome', descricao_curta='$descricao_curta', descricao_longa='$descricao_longa', preco='$preco', tag='$tag', description='$description', modificado=NOW(), categoria_id='$categoria_id', situacao_id='$situacao_id' WHERE id='$id' ");
+        $upload = mysqli_query($conexao, "UPDATE produtos SET nome='$nome', slug='$slug', descricao_curta='$descricao_curta', descricao_longa='$descricao_longa', preco='$preco', tag='$tag', description='$description', modificado=NOW(), categoria_id='$categoria_id', situacao_id='$situacao_id' WHERE id='$id' ");
 
       //  echo " Nome: ".$nome." Curta: ".$descricao_curta." Longa: ".$descricao_longa." Preco: ".$preco." Tag: ".$tag." Description: ".$description." Categoria: ".$categoria_id." Imagem: ".$imagem." Situacao: ".$situacao_id."";
         

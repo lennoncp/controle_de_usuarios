@@ -101,7 +101,10 @@
    if($autorizado){
         //echo " Nome: ".$nome." Curta: ".$descricao_curta." Longa: ".$descricao_longa." Preco: ".$preco." Tag: ".$tag." Description: ".$description." Categoria: ".$categoria_id." Imagem: ".$imagem." Situacao: ".$situacao_id."";
 
-        $insert = mysqli_query($conexao, "INSERT INTO produtos ( nome, descricao_curta, descricao_longa, preco, tag, description, criado, categoria_id, imagem, situacao_id) VALUES ( '$nome', '$descricao_curta', '$descricao_longa', '$preco', '$tag', '$description', NOW(), '$categoria_id', '$nome_final', '$situacao_id')");
+        $minusculo = strtolower(preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $nome ) ));
+        $slug = str_replace(" ", "_", $minusculo);
+
+        $insert = mysqli_query($conexao, "INSERT INTO produtos ( nome, slug, descricao_curta, descricao_longa, preco, tag, description, criado, categoria_id, imagem, situacao_id) VALUES ( '$nome', '$slug', '$descricao_curta', '$descricao_longa', '$preco', '$tag', '$description', NOW(), '$categoria_id', '$nome_final', '$situacao_id')");
 
        // INSERT INTO `produtos` (`id`, `nome`, `descricao_curta`, `descricao_longa`, `preco`, `tag`, `description`, `criado`, `modificado`, `categoria_id`, `imagem`, `situacao_id`) VALUES (NULL, 'nova', 'descricao curta', 'descricao longa', '400.2', 'tag', 'description', '2018-08-03 00:00:00', NULL, '1', 'imagem.png', '1');
 
